@@ -18,7 +18,6 @@ GO
 CREATE TABLE Hostpital(
 	Id INT IDENTITY(1,1) PRIMARY KEY,
 	NameOfHostpital varchar(255),
-	LocationName varchar(255),
 	Fk_Place int FOREIGN KEY REFERENCES  Place(Id)
 
 );
@@ -47,7 +46,7 @@ CREATE TABLE Patient(
 	Id INT IDENTITY(1,1) PRIMARY KEY,
 	Fk_person int FOREIGN  KEY REFERENCES  Person(Id),
 	Fk_stationed int FOREIGN  KEY REFERENCES  Hostpital(Id),
-	Fk_Desig int FOREIGN KEY REFERENCES  Disease(Id)
+	Fk_Disease int FOREIGN KEY REFERENCES  Disease(Id)
 
 );
 GO
