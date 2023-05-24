@@ -6,11 +6,21 @@ USE HospitalManagementSystem
 GO
 DROP TABLE IF EXISTS Hostpital
 GO
+CREATE TABLE  Place(
+	Id INT IDENTITY(1,1) PRIMARY KEY,
+	City VARCHAR(255),
+	PostalCode int NOT NULL
+);
+GO
+DROP TABLE IF EXISTS Hostpital
+GO
 -- TODO FUNCTION/PROCEDUR to count employees
 CREATE TABLE Hostpital(
 	Id INT IDENTITY(1,1) PRIMARY KEY,
 	NameOfHostpital varchar(255),
 	LocationName varchar(255),
+	Fk_Place int FOREIGN KEY REFERENCES  Place(Id)
+
 );
 
 GO
@@ -67,5 +77,7 @@ CREATE TABLE Medicine(
 );
 
 GO
+
+
 --Help table
 --CREATE TABLE diseaseHistory();

@@ -1,3 +1,17 @@
+INSERT INTO PLACE (City,PostalCode) VALUES
+('Bern',3006),
+('Zuerich',8008),
+('Basel',4001),
+('Thun',3600),
+('Stans',6370),
+('Frauefeld',9548),
+('Altdorf',6460),
+('Sarnen',6060),
+('Reid',4910),
+('Herisau',9112),
+('Arogno',6822)
+
+
 INSERT INTO Person (FirstName,LastName,Birthday) VALUES
 ('Tom','Christen','22-11-02'),
 ('Emma','Mathis','23-01-02'),
@@ -19,3 +33,20 @@ INSERT INTO Person (FirstName,LastName,Birthday) VALUES
 ('Nicole','Bildrein','15-09-23'),
 ('Yellena','Reinhard','21-08-22'),
 ('Mustafa','Setovic','04-08-13')
+
+--In not done Please Change table attribute of Location to Place 
+INSERT INTO Hostpital (NameOfHostpital,LocationName) VALUES
+('UniversiteatsSpialt',''),
+('Kantonsspital','Zuerich'),
+('Spitalzentrum','Bern'),
+('Spital Interlaken','Bern'),
+('Spital Thun','Thun'),
+('Spital Tiefnau','Bern'),
+('Klink st.Urban LUPS','Luzern'),
+('Kantonsspital',''),
+('Universiteats Kinderspital Basel','Basel'),
+('Felix Plater Spital','Bern'),
+('Privatklink Belair','Schaffhausen'),
+('Spitealer Schaffhausen','Schafhausen'),
+('Asana Spital Menziken','Aargau'),
+('Geburtshaus St.Gallen','St.Gallen')
