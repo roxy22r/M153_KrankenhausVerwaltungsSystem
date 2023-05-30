@@ -131,10 +131,9 @@ VALUES
 (4,64,7),
 (7,65,7),
 (5,66,8),
-(8,67,9),
+(8,67,9)
 
-(1,1,1),
-(1,1,1),
-(1,1,1),
-(1,1,1),
-(1,1,1),
+INSERT INTO diseaseHistory 
+(Fk_Patient,Fk_Disease,Fk_Employees,Fk_Hostpital,EntryDate,DischargeDate )
+VALUES
+(6,4,2,1,CONVERT(DATE,'1970-08-15'),CONVERT(DATE,'1970-08-15'))
