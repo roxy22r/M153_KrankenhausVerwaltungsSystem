@@ -44,8 +44,8 @@ DROP TABLE IF EXISTS Patient
 GO
 CREATE TABLE Patient(
 	Id INT IDENTITY(1,1) PRIMARY KEY,
-	Fk_Person int FOREIGN  KEY REFERENCES  Person(Id),
-	Fk_Stationed int FOREIGN  KEY REFERENCES  Hostpital(Id),
+	Fk_person int FOREIGN  KEY REFERENCES  Person(Id),
+	Fk_stationed int FOREIGN  KEY REFERENCES  Hostpital(Id),
 	Fk_Disease int FOREIGN KEY REFERENCES  Disease(Id)
 
 );
@@ -57,8 +57,8 @@ CREATE TABLE Employees(
 	JobTitle VARCHAR(255),
 	HealthSector VARCHAR(255),
 	EntryDate DATETIME,
-	Fk_Person int FOREIGN KEY REFERENCES  Person(Id),
-	Fk_WorkingHostpital int FOREIGN KEY REFERENCES  Hostpital(Id)
+	Fk_Person INT FOREIGN KEY REFERENCES  Person(Id),
+	Fk_WorkingHostpital INT FOREIGN KEY REFERENCES  Hostpital(Id)
 
 
 
