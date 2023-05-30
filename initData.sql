@@ -92,7 +92,7 @@ INSERT INTO Hostpital (NameOfHostpital,Fk_Place) VALUES
 GO
 INSERT INTO Employees (Fk_Person,Fk_WorkingHostpital,JobTitle,HealthSector,EntryDate) VALUES
 (4,1,'Chief of Radiology','Radiologic technician',CONVERT(DATE,'1970-08-15')),
-(5,2,'Surgeon','Cardiac',CONVERT(DATE,'1970-08-15')),
+(15,2,'Surgeon','Cardiac',CONVERT(DATE,'1970-08-15')),
 (6,4,'Chief of Radiology','psychologist',CONVERT(DATE,'1970-08-15')),
 (7,5,'Surgeon','psychologist',CONVERT(DATE,'1990-08-15')),
 (8,6,'Surgeon','Radiologic technician',CONVERT(DATE,'1970-08-15')),
@@ -101,3 +101,40 @@ INSERT INTO Employees (Fk_Person,Fk_WorkingHostpital,JobTitle,HealthSector,Entry
 (12,9,'Doctor','Gynecologist',CONVERT(DATE,'1988-08-15')),
 (13,10,'Doctror','Urologists',CONVERT(DATE,'1978-08-15')),
 (14,6,'Doctor','Dermatology',CONVERT(DATE,'1979-08-15'))
+
+INSERT INTO Medicine 
+(Desig,Producer,Price)
+VALUES
+('Paliperidon','Invega',80.15),
+('Novolin R FlexPen','Afrezza',19.33),
+('Neosporin','HLO',45.89),
+('Lexapro','Johnson & Johnson',347.33),
+('Zocor','Visine',432.54),
+('Xanax','CNC',32.22),
+('Lipitor','BKL',3892.10),
+('Yaz','MCN',37.2),
+('Ativan','DLD',11.46),
+('Hytrin','GTG',22.99)
+GO
+
+INSERT INTO Patient 
+(Fk_Disease,Fk_Person,Fk_Stationed)
+VALUES
+(1,56,1),
+(2,57,1),
+(2,58,1),
+(3,59,2),
+(3,60,2),
+(3,61,5),
+(4,62,5),
+(4,63,5),
+(4,64,7),
+(7,65,7),
+(5,66,8),
+(8,67,9),
+
+(1,1,1),
+(1,1,1),
+(1,1,1),
+(1,1,1),
+(1,1,1),
