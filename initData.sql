@@ -1,3 +1,5 @@
+Use HospitalManagementSystem;
+
 INSERT INTO Disease (Desig) VALUES
 ('AIDS'),
 ('Blue-Green Algae'),
@@ -31,6 +33,7 @@ INSERT INTO PLACE (City,PostalCode) VALUES
 ('Herisau',9112),
 ('Arogno',6822),
 ('Luzern',6004)
+
 GO
 INSERT INTO Person (FirstName,LastName,Birthday) VALUES
 ('Tom','Mathis', CONVERT(DATE,'1940-11-02')),
@@ -53,26 +56,27 @@ INSERT INTO Person (FirstName,LastName,Birthday) VALUES
 ('Tabet','Bildrein',CONVERT(DATE,'1955-09-23')),
 ('Meta','Reinhard',CONVERT(DATE,'1955-08-22')),
 ('Greta','Setovic',CONVERT(DATE,'1955-08-13')),
-('Tom','Christen', CONVERT(DATE,'2022-11-02')),
-('Emma','Mathis', CONVERT(DATE,'2023-01-02')),
-('Mia','Niederberger', CONVERT(DATE,'2022-10-18')),
-('Sophie','Am Holz', CONVERT(DATE,'2011-05-12')),
-('Aline','Mueller', CONVERT(DATE,'2018-06-17')),
-('Max','Gottwald', CONVERT(DATE,'2017-04-01')),
-('Rolf','Bucher', CONVERT(DATE,'2016-04-02')),
-('Fritz','Neapflin', CONVERT(DATE,'2002-02-27')),
-('Dave','Berueter',CONVERT(DATE,'2020-03-26')),
-('Aidan','Mathis',CONVERT(DATE,'2008-03-12')),
-('Rahel','Christen',CONVERT(DATE,'2008-03-11')),
-('Silas','Am Boden',CONVERT(DATE,'2009-05-07')),
-('Rita','Wasser',CONVERT(DATE,'2004-07-05')),
-('Megan','Wasser',CONVERT(DATE,'2004-01-06')),
-('Leo','Singenberger',CONVERT(DATE,'2002-06-14')),
-('Leonardo','Singenberger',CONVERT(DATE,'2005-11-15')),
-('Mike','Stadelmann',CONVERT(DATE,'2006-08-30')),
-('Nicole','Bildrein',CONVERT(DATE,'2015-09-23')),
-('Yellena','Reinhard',CONVERT(DATE,'2021-08-22')),
-('Mustafa','Setovic',CONVERT(DATE,'2004-08-13'))
+('Tom','Christen', CONVERT(DATETIME,'2022-11-02 07:05 PM')),
+('Emma','Mathis', CONVERT(DATETIME,'2023-01-02 08:39 PM')),
+('Mia','Niederberger', CONVERT(DATETIME,'2022-10-18 09:10 PM')),
+('Sophie','Am Holz', CONVERT(DATETIME,'2011-05-12 10:10 PM')),
+('Aline','Mueller', CONVERT(DATETIME,'2018-06-17 11:23 PM')),
+('Max','Gottwald', CONVERT(DATETIME,'2017-04-01 12:55 PM')),
+('Rolf','Bucher', CONVERT(DATETIME,'2016-04-02 01:20 PM')),
+('Fritz','Neapflin', CONVERT(DATETIME,'2002-02-27 02:19 AM')),
+('Dave','Berueter',CONVERT(DATETIME,'2020-03-26 03:17 AM')),
+('Aidan','Mathis',CONVERT(DATETIME,'2008-03-12 03:16 AM')),
+('Rahel','Christen',CONVERT(DATETIME,'2008-03-11 04:15 AM')),
+('Silas','Am Boden',CONVERT(DATETIME,'2009-05-07 05:032 AM')),
+('Rita','Wasser',CONVERT(DATETIME,'2004-07-05 06:33 AM')),
+('Megan','Wasser',CONVERT(DATETIME,'2004-01-06 07:30 AM')),
+('Leo','Singenberger',CONVERT(DATETIME,'2002-06-14 07:45 AM')),
+('Leonardo','Singenberger',CONVERT(DATETIME,'2005-11-15 07:01 AM')),
+('Mike','Stadelmann',CONVERT(DATETIME,'2006-08-30 07:22 PM')),
+('Nicole','Bildrein',CONVERT(DATETIME,'2015-09-23 07:43 AM')),
+('Yellena','Reinhard',CONVERT(DATETIME,'2021-08-22 05:40 PM')),
+('Mustafa','Setovic',CONVERT(DATETIME,'2004-08-13 04:00 AM'))
+
 GO
 --In not done Please Change table attribute of Location to Place 
 INSERT INTO Hostpital (NameOfHostpital,Fk_Place) VALUES
