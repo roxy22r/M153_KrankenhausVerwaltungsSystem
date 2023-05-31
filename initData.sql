@@ -18,7 +18,7 @@ INSERT INTO Disease (Desig) VALUES
 ('Depression'),
 ('Alzheimer'),
 ('Bipolar'),
-('Anxity')
+('Anxiety')
 
 INSERT INTO PLACE (City,PostalCode) VALUES
 ('Bern',3006),
