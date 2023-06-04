@@ -1,29 +1,47 @@
 USE  HospitalManagementSystem;
 
-SELECT * FROM Person;
+--   o Todo  Check if every table has 20 data records
+--	 o ToDo getTotalEmployeesAndPatientsInHospital mind 3 Test +/-
+--	 o TdeletePatient oDo mind 3 Test +/-
+--DROP FUNCTION IF EXISTS getTotalEmployeesAndPatientsInHospital;
 
-SELECT * FROM Medicine;
-SELECT * FROM Place;
-SELECT
-Fk_WorkingHostpital,JobTitle,
-HealthSector,EntryDate,
-LastName,FirstName,Birthday
-FROM Employees e
-Left Join Person per ON per.Id= e.Fk_person
-Left Join Hostpital h ON h.Id=e.Fk_WorkingHostpital
-Left Join Place plc ON plc.Id=h.Fk_Place;
+GO
 
-SELECT p.Id ,per.FirstName,per.LastName,hos.NameOfHostpital,dis.Desig FROM Patient p
-LEFT JOIN Person per ON per.Id= p.Fk_Person
-LEFT JOIN Hostpital hos ON hos.Id = p.Fk_Stationed
-LEFT JOIN Disease dis ON dis.Id = p.Fk_Disease;
+CREATE FUNCTION  getTotalEmployeesAndPatientsInHospital(@hospitalId INT)
+	RETURNS TABLE 
+		AS 
+		RETURN
+			(
+				SELECT h.Id,h.NameOfHostpital,COUNT(pat.Id) as 'Patient',COUNT(pers.Id) as 'Person' 
+					FROM Hostpital h
+					LEFT JOIN Patient pat ON pat.Fk_Stationed = h.Id
+					LEFT JOIN Disease d ON d.Id = h.Id
+					LEFT JOIN Person pers ON pat.Fk_Person = pers.Id
+					WHERE h.Id= @hospitalId 
+					GROUP BY h.NameOfHostpital, h.Id
+			);
+		
+GO 
 
---TODO CREATE  A Function Procedures 
--- Return Total Amount of Patients and Employees foreach
--- Hospital
---	 o ToDo mind 3 Test +/-
+SELECT * FROM getTotalEmployeesAndPatientsInHospital(1);
 
--- TODO CREATE Stored Procedures 
--- Delete a record for a Patient
--- return OK/NOT
---	 o ToDo mind 3 Test +/-
+GO
+
+CREATE PROCEDURE deletePatient( @patientId INT)
+AS BEGIN 
+	IF( EXISTS (SELECT COUNT(*) FROM Patient WHERE Id=@patientId))
+		BEGIN
+			DELETE FROM Patient WHERE Id=@patientId;
+				RETURN 1;
+		END
+	ELSE
+			RETURN 0;
+	END
+
+GO
+
+DECLARE @TEST BIT;
+EXEC @TEST= deletePatient 7;
+print @TEST;
+
+DELETE FROM Patient WHERE Id=5;
