@@ -98,7 +98,7 @@ INSERT INTO Employees (Fk_Person,Fk_WorkingHostpital,JobTitle,HealthSector,Entry
 (4,1,'Chief of Radiology','Radiologic technician',CONVERT(DATE,'1970-08-15')),
 (15,2,'Surgeon','Cardiac',CONVERT(DATE,'1970-08-15')),
 (6,4,'Chief of Radiology','psychologist',CONVERT(DATE,'1970-08-15')),
-(7,5,'Surgeon','psychologist',CONVERT(DATE,'1990-08-15')),
+(7,5,'Surgeon','Psychologist',CONVERT(DATE,'1990-08-15')),
 (8,6,'Surgeon','Radiologic technician',CONVERT(DATE,'1970-08-15')),
 (9,7,'Chief of Radiology','Neurologists',CONVERT(DATE,'1971-08-15')),
 (11,8,'Obstetricians','Birth',CONVERT(DATE,'1988-08-15')),
@@ -137,7 +137,3 @@ VALUES
 (5,66,8),
 (8,67,9)
 
-INSERT INTO diseaseHistory 
-(Fk_Patient,Fk_Disease,Fk_Employees,Fk_Hostpital,EntryDate,DischargeDate )
-VALUES
-(6,4,2,1,CONVERT(DATE,'1970-08-15'),CONVERT(DATE,'1970-08-15'))

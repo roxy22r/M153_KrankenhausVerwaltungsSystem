@@ -38,6 +38,7 @@ GO
 CREATE TABLE Disease(
 	Id INT IDENTITY(1,1) PRIMARY KEY,
 	Desig VARCHAR(255) NOT NULL,
+	isHealable  BIT
 );
 GO
 DROP TABLE IF EXISTS Patient
@@ -50,9 +51,9 @@ CREATE TABLE Patient(
 
 );
 GO
-DROP TABLE IF EXISTS Employees
+DROP TABLE IF EXISTS Employee
 GO
-CREATE TABLE Employees(
+CREATE TABLE Employee(
 	Id INT IDENTITY(1,1) PRIMARY KEY,
 	JobTitle VARCHAR(255),
 	HealthSector VARCHAR(255),
@@ -78,5 +79,15 @@ CREATE TABLE Medicine(
 GO
 
 
---Help table
---CREATE TABLE diseaseHistory();
+CREATE TABLE DiseaseHistory(
+	Id INT IDENTITY(1,1) PRIMARY KEY,
+	isHealed  BIT,
+	EntryDate DATETIME,
+	Discharge DATETIME,
+	Fk_Hostpital INT FOREIGN KEY REFERENCES Hostpital (Id),
+	Fk_Person INT FOREIGN KEY REFERENCES Person(Id),
+	Fk_Employee INT FOREIGN KEY REFERENCES Employee(Id),
+	Fk_Medicine INT FOREIGN KEY REFERENCES Medicine(Id),
+);
+
+GO
