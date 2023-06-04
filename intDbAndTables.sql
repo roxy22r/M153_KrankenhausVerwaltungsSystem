@@ -85,7 +85,7 @@ CREATE TABLE DiseaseHistory(
 	EntryDate DATETIME,
 	Discharge DATETIME,
 	Fk_Hostpital INT FOREIGN KEY REFERENCES Hostpital (Id),
-	Fk_Person INT FOREIGN KEY REFERENCES Person(Id),
+	Fk_Patient INT FOREIGN KEY REFERENCES Patient(Id),
 	Fk_Employee INT FOREIGN KEY REFERENCES Employee(Id),
 	Fk_Medicine INT FOREIGN KEY REFERENCES Medicine(Id),
 );

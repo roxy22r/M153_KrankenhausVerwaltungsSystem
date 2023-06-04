@@ -17,3 +17,13 @@ SELECT p.Id ,per.FirstName,per.LastName,hos.NameOfHostpital,dis.Desig FROM Patie
 LEFT JOIN Person per ON per.Id= p.Fk_Person
 LEFT JOIN Hostpital hos ON hos.Id = p.Fk_Stationed
 LEFT JOIN Disease dis ON dis.Id = p.Fk_Disease;
+
+--TODO CREATE  A Function Procedures 
+-- Return Total Amount of Patients and Employees foreach
+-- Hospital
+--	 o ToDo mind 3 Test +/-
+
+-- TODO CREATE Stored Procedures 
+-- Delete a record for a Patient
+-- return OK/NOT
+--	 o ToDo mind 3 Test +/-
