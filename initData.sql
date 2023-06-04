@@ -94,7 +94,7 @@ INSERT INTO Hostpital (NameOfHostpital,Fk_Place) VALUES
 ('Asana Spital Menziken',8),
 ('Geburtshaus',7)
 GO
-INSERT INTO Employees (Fk_Person,Fk_WorkingHostpital,JobTitle,HealthSector,EntryDate) VALUES
+INSERT INTO Employee (Fk_Person,Fk_WorkingHostpital,JobTitle,HealthSector,EntryDate) VALUES
 (4,1,'Chief of Radiology','Radiologic technician',CONVERT(DATE,'1970-08-15')),
 (15,2,'Surgeon','Cardiac',CONVERT(DATE,'1970-08-15')),
 (6,4,'Chief of Radiology','psychologist',CONVERT(DATE,'1970-08-15')),
@@ -137,3 +137,19 @@ VALUES
 (5,66,8),
 (8,67,9)
 
+
+INSERT INTO dbo.Medicine (Desig, Price, Producer)
+VALUES ('Aspirin', 5.99, 'Bayer'),
+       ('Lipitor', 12.50, 'Pfizer'),
+       ('Ibuprofen', 3.25, 'Johnson & Johnson'),
+       ('Amoxicillin', 8.75, 'Novartis'),
+	   ('Advil', 9.99, 'Johnson & Johnson'),
+       ('Tylenol', 6.50, 'Johnson & Johnson'),
+       ('Zantac', 7.25, 'GlaxoSmithKline'),
+       ('Lisinopril', 15.75, 'Merck'),
+       ('Metformin', 4.99, 'Novartis'),
+	   ('Nexium', 10.99, 'AstraZeneca'),
+       ('Zoloft', 8.50, 'Pfizer'),
+       ('Ventolin', 6.25, 'GlaxoSmithKline'),
+       ('Omeprazole', 12.75, 'Teva'),
+       ('Simvastatin', 9.99, 'Merck');

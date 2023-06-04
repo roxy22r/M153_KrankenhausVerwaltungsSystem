@@ -1,12 +1,25 @@
--- TODO CREATE A Function Procedures 
--- To Count Total Patient taking the same medication
---	 o ToDo create 5 records for patients with the same
---		medication
---	 o ToDo mind 3 Test +/-
+CREATE FUNCTION fn_GetMedicationUsage (@MedicationId INT)
+	RETURNS INT AS
+BEGIN
+	RETURN (SELECT COUNT(*) FROM DiseaseHistory 
+	where Fk_Medicine = @MedicationId)
+END
 
+go;
 
---TODO CREATE Stored Procedures that Creates  a 
--- new record DiseaseHistory for a Patient.
--- When any of the values are not it the DB
--- return a Error MSG
---	 o ToDo mind 3 Test +/-
+CREATE PROCEDURE sp_NewDiseaseHistory
+	@HospitalId INT,
+	@PersonId INT,
+	@EmployeeId INT,
+	@MedicineId INT
+AS BEGIN
+	IF 
+	EXISTS (SELECT * FROM Hostpital WHERE Hostpital.Id = @HospitalId) OR 
+	EXISTS (SELECT * FROM Person WHERE Person.Id = @PersonId) OR 
+	EXISTS (SELECT * FROM Employee WHERE Employee.Id = @EmployeeId) OR
+	EXISTS (SELECT * FROM Medicine WHERE Medicine.Id = @MedicineId)
+	BEGIN
+		INSERT INTO DiseaseHistory (Fk_Hostpital, Fk_Person, Fk_Employee, Fk_Medicine, EntryDate, isHealed)
+		VALUES (@HospitalId, @PersonId, @EmployeeId, @MedicineId, GETDATE(), 0);
+	END
+END
