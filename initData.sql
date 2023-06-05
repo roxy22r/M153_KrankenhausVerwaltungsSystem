@@ -111,15 +111,15 @@ GO
 
 --In not done Please Change table attribute of Location to Place 
 INSERT INTO Hostpital (NameOfHostpital,Fk_Place) VALUES
-('UniversiteatsSpialt',1),
+('Universiteats Spialt',1),
 ('Kantonsspital',2),
 ('Spitalzentrum',3),
-('Spital',4),
-('Spital',5),
-('Spital',6),
-('Spital',3),
-('Spital',15),
-('Spital',16),
+('Spital ',4),
+('Spital ',5),
+('Spital ',6),
+('Spital ',3),
+('Spital ',15),
+('Spital ',16),
 ('Klink st.Urban LUPS',12),
 ('Kantonsspital',10),
 ('Universiteats Kinderspital',3),
@@ -142,32 +142,42 @@ INSERT INTO Employee (Fk_Person,Fk_WorkingHostpital,JobTitle,HealthSector,EntryD
 (11,8,'Obstetricians','Birth',CONVERT(DATE,'1988-08-15')),
 (12,9,'Doctor','Gynecologist',CONVERT(DATE,'1988-08-15')),
 (13,10,'Doctror','Urologists',CONVERT(DATE,'1978-08-15')),
-(14,6,'Doctor','Dermatology',CONVERT(DATE,'1979-08-15'))
+(18,6,'Doctor','Dermatology',CONVERT(DATE,'1979-08-15')),
+(19,1,'Chief of Radiology','Radiologic technician',CONVERT(DATE,'1970-08-15')),
+(17,2,'Surgeon','Cardiac',CONVERT(DATE,'1970-08-15')),
+(16,4,'Chief of Radiology','psychologist',CONVERT(DATE,'1970-08-15')),
+(27,5,'Surgeon','Psychologist',CONVERT(DATE,'1990-08-15')),
+(28,6,'Surgeon','Radiologic technician',CONVERT(DATE,'1970-08-15')),
+(29,7,'Chief of Radiology','Neurologists',CONVERT(DATE,'1971-08-15')),
+(31,8,'Obstetricians','Birth',CONVERT(DATE,'1988-08-15')),
+(32,9,'Doctor','Gynecologist',CONVERT(DATE,'1988-08-15')),
+(33,10,'Doctror','Urologists',CONVERT(DATE,'1978-08-15')),
+(34,6,'Doctor','Dermatology',CONVERT(DATE,'1979-08-15'))
 
 GO
 INSERT INTO Patient 
-(Fk_Disease,Fk_Person,Fk_Stationed)
+(Fk_Disease,Fk_Person,Fk_Stationed,Fk_ResponsibleEmployee)
 VALUES
-(1,20,1),
-(2,21,1),
-(2,22,1),
-(3,23,2),
-(3,24,2),
-(3,25,5),
-(4,26,5),
-(4,27,5),
-(4,28,7),
-(7,29,7),
-(5,30,8),
-(8,40,9),
-(10,24,2),
-(10,25,5),
-(10,26,5),
-(11,27,5),
-(11,28,7),
-(11,29,7),
-(11,30,8),
-(30,40,9);
+(1,20,1,1),
+(2,21,1,2),
+(2,22,1,2),
+(3,23,2,2),
+(3,24,2,3),
+(3,25,5,3),
+(4,26,5,3),
+(4,27,5,5),
+(4,28,7,6),
+(7,29,7,6),
+(5,30,8,6),
+(8,40,9,6),
+(10,24,2,7),
+(10,25,5,8),
+(10,26,5,8),
+(11,27,5,8),
+(11,28,7,9),
+(11,29,7,9),
+(11,30,8,10),
+(30,40,9,10);
 GO
 INSERT INTO dbo.Medicine (Desig, Price, Producer) VALUES
 ('Aspirin', 5.99, 'Bayer'),
