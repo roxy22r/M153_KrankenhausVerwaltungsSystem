@@ -18,8 +18,23 @@ INSERT INTO Disease (Desig) VALUES
 ('Depression'),
 ('Alzheimer'),
 ('Bipolar'),
-('Anxiety')
-
+('Anxiety'),
+('Cancer'),
+('Diabetes'),
+('HIV'),
+('Malaria'),
+('Ebola'),
+('Influenza'),
+('Heart Disease'),
+('Stroke'),
+('Arthritis'),
+('Asthma'),
+('Hepatitis B'),
+('Hepatitis C'),
+('Cholera'),
+('Schizophrenia'),
+('Leprosy');
+GO
 INSERT INTO PLACE (City,PostalCode) VALUES
 ('Bern',3006),
 ('Zuerich',8008),
@@ -32,9 +47,18 @@ INSERT INTO PLACE (City,PostalCode) VALUES
 ('Reid',4910),
 ('Herisau',9112),
 ('Arogno',6822),
-('Luzern',6004)
-
+('Zurich', 8091),
+('Basel', 4031),
+('Geneva', 1205),
+('Lausanne', 1011),
+('St. Gallen', 9007),
+('Bern', 3010),
+('Aarau', 5001),
+('Baden', 5404),
+('Liestal', 4410),
+('Luzern', 6000); 
 GO
+
 INSERT INTO Person (FirstName,LastName,Birthday) VALUES
 ('Tom','Mathis', CONVERT(DATETIME,'1940-11-02 04:15 AM')),
 ('Emma','Christen', CONVERT(DATETIME,'1950-01-02 04:15 AM')),
@@ -74,8 +98,17 @@ INSERT INTO Person (FirstName,LastName,Birthday) VALUES
 ('Mike','Stadelmann',CONVERT(DATETIME,'2006-18-08 07:22 PM')),
 ('Nicole','Bildrein',CONVERT(DATETIME,'2015-30-11 07:43 AM')),
 ('Yellena','Reinhard',CONVERT(DATETIME,'2021-08-11 05:40 PM')),
-('Mustafa','Setovic',CONVERT(DATETIME,'2004-08-04 04:00 AM'));
+('Mustafa','Setovic',CONVERT(DATETIME,'2004-04-08 04:00 AM')),
+('Owl', 'Green', CONVERT(DATETIME, '2008-14-01 01:00 AM')),
+('Blue', 'BakerJ', CONVERT(DATETIME, '2019-03-08 01:13 AM')),
+('Christin', 'Yetti', CONVERT(DATETIME, '2011-04-08 03:16 AM')),
+('Kimm', 'Zenro', CONVERT(DATETIME, '2007-15-09 04:33 AM')),
+('Enaro', 'Chia', CONVERT(DATETIME, '2007-26-03 05:44 AM')),
+('Maxim', 'Pipe', CONVERT(DATETIME, '2004-27-11 06:55 AM')),
+('Johny', 'Line', CONVERT(DATETIME, '1990-01-01 12:56 PM')),
+('Bobby', 'Smoke', CONVERT(DATETIME, '1990-03-03 02:56 PM'));
 GO
+
 --In not done Please Change table attribute of Location to Place 
 INSERT INTO Hostpital (NameOfHostpital,Fk_Place) VALUES
 ('UniversiteatsSpialt',1),
@@ -84,13 +117,20 @@ INSERT INTO Hostpital (NameOfHostpital,Fk_Place) VALUES
 ('Spital',4),
 ('Spital',5),
 ('Spital',6),
+('Spital',3),
+('Spital',15),
+('Spital',16),
 ('Klink st.Urban LUPS',12),
-('Kantonsspital','10'),
+('Kantonsspital',10),
 ('Universiteats Kinderspital',3),
 ('Felix Plater Spital',1),
 ('Privatklink Belair',10),
 ('Asana Spital Menziken',8),
-('Geburtshaus',7)
+('Geburtshaus',7),
+('Mia Gina Spital',1),
+('klink Belair',10),
+('Neona Spital ',8),
+('Getto Spital',7)
 GO
 INSERT INTO Employee (Fk_Person,Fk_WorkingHostpital,JobTitle,HealthSector,EntryDate) VALUES
 (4,1,'Chief of Radiology','Radiologic technician',CONVERT(DATE,'1970-08-15')),
@@ -104,50 +144,54 @@ INSERT INTO Employee (Fk_Person,Fk_WorkingHostpital,JobTitle,HealthSector,EntryD
 (13,10,'Doctror','Urologists',CONVERT(DATE,'1978-08-15')),
 (14,6,'Doctor','Dermatology',CONVERT(DATE,'1979-08-15'))
 
-INSERT INTO Medicine 
-(Desig,Producer,Price)
-VALUES
-('Paliperidon','Invega',80.15),
-('Novolin R FlexPen','Afrezza',19.33),
-('Neosporin','HLO',45.89),
-('Lexapro','Johnson & Johnson',347.33),
-('Zocor','Visine',432.54),
-('Xanax','CNC',32.22),
-('Lipitor','BKL',3892.10),
-('Yaz','MCN',37.2),
-('Ativan','DLD',11.46),
-('Hytrin','GTG',22.99)
 GO
-
 INSERT INTO Patient 
 (Fk_Disease,Fk_Person,Fk_Stationed)
 VALUES
-(1,56,1),
-(2,57,1),
-(2,58,1),
-(3,59,2),
-(3,60,2),
-(3,61,5),
-(4,62,5),
-(4,63,5),
-(4,64,7),
-(7,65,7),
-(5,66,8),
-(8,67,9)
-
-
-INSERT INTO dbo.Medicine (Desig, Price, Producer)
-VALUES ('Aspirin', 5.99, 'Bayer'),
-       ('Lipitor', 12.50, 'Pfizer'),
-       ('Ibuprofen', 3.25, 'Johnson & Johnson'),
-       ('Amoxicillin', 8.75, 'Novartis'),
-	   ('Advil', 9.99, 'Johnson & Johnson'),
-       ('Tylenol', 6.50, 'Johnson & Johnson'),
-       ('Zantac', 7.25, 'GlaxoSmithKline'),
-       ('Lisinopril', 15.75, 'Merck'),
-       ('Metformin', 4.99, 'Novartis'),
-	   ('Nexium', 10.99, 'AstraZeneca'),
-       ('Zoloft', 8.50, 'Pfizer'),
-       ('Ventolin', 6.25, 'GlaxoSmithKline'),
-       ('Omeprazole', 12.75, 'Teva'),
-       ('Simvastatin', 9.99, 'Merck');
+(1,20,1),
+(2,21,1),
+(2,22,1),
+(3,23,2),
+(3,24,2),
+(3,25,5),
+(4,26,5),
+(4,27,5),
+(4,28,7),
+(7,29,7),
+(5,30,8),
+(8,40,9),
+(10,24,2),
+(10,25,5),
+(10,26,5),
+(11,27,5),
+(11,28,7),
+(11,29,7),
+(11,30,8),
+(30,40,9);
+GO
+INSERT INTO dbo.Medicine (Desig, Price, Producer) VALUES
+('Aspirin', 5.99, 'Bayer'),
+('Lipitor', 12.50, 'Pfizer'),
+('Ibuprofen', 3.25, 'Johnson & Johnson'),
+('Amoxicillin', 8.75, 'Novartis'),
+('Advil', 9.99, 'Johnson & Johnson'),
+('Tylenol', 6.50, 'Johnson & Johnson'),
+('Zantac', 7.25, 'GlaxoSmithKline'),
+('Lisinopril', 15.75, 'Merck'),
+('Metformin', 4.99, 'Novartis'),
+('Nexium', 10.99, 'AstraZeneca'),
+('Zoloft', 8.50, 'Pfizer'),
+('Ventolin', 6.25, 'GlaxoSmithKline'),
+('Omeprazole', 12.75, 'Teva'),
+('Simvastatin', 9.99, 'Merck'),
+('Paliperidon',80.15,'Invega'),
+('Novolin R FlexPen',19.33,'Afrezza'),
+('Neosporin','HLO',45.89),
+('Lexapro',347.33,'Johnson & Johnson'),
+('Zocor',432.54,'Visine'),
+('Xanax',32.22,'CNC'),
+('Lipitor',3892.1,'BKL'),
+('Yaz',37.2,'MCN'),
+('Ativan',11.46,'DLD'),
+('Hytrin',22.99,'GTG');
+GO

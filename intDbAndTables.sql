@@ -1,3 +1,4 @@
+Use ComputerShop
 DROP DATABASE IF  EXISTS HospitalManagementSystem
 GO
 CREATE DATABASE HospitalManagementSystem
@@ -47,8 +48,8 @@ CREATE TABLE Patient(
 	Id INT IDENTITY(1,1) PRIMARY KEY,
 	Fk_Person int FOREIGN  KEY REFERENCES  Person(Id),
 	Fk_Stationed int FOREIGN  KEY REFERENCES  Hostpital(Id),
-	Fk_Disease int FOREIGN KEY REFERENCES  Disease(Id)
-
+	Fk_Disease int FOREIGN KEY REFERENCES  Disease(Id),
+	Fk_ResponsibleEmployee int FOREIGN KEY REFERENCES  Employee(Id)
 );
 GO
 DROP TABLE IF EXISTS Employee
