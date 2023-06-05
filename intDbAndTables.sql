@@ -18,8 +18,8 @@ GO
 -- TODO FUNCTION/PROCEDUR to count employees
 CREATE TABLE Hostpital(
 	Id INT IDENTITY(1,1) PRIMARY KEY,
-	NameOfHostpital varchar(255),
-	Fk_Place int FOREIGN KEY REFERENCES  Place(Id)
+	NameOfHostpital varchar(255)NOT NULL,
+	Fk_Place int FOREIGN KEY REFERENCES  Place(Id) NOT NULL
 
 );
 
@@ -39,31 +39,28 @@ GO
 CREATE TABLE Disease(
 	Id INT IDENTITY(1,1) PRIMARY KEY,
 	Desig VARCHAR(255) NOT NULL,
-	isHealable  BIT
+	isHealable  BIT NOT NULL
 );
 GO
 DROP TABLE IF EXISTS Patient
 GO
 CREATE TABLE Patient(
 	Id INT IDENTITY(1,1) PRIMARY KEY,
-	Fk_Person int FOREIGN  KEY REFERENCES  Person(Id),
-	Fk_Stationed int FOREIGN  KEY REFERENCES  Hostpital(Id),
-	Fk_Disease int FOREIGN KEY REFERENCES  Disease(Id),
-	Fk_ResponsibleEmployee int FOREIGN KEY REFERENCES  Employee(Id)
+	Fk_Person int FOREIGN  KEY REFERENCES  Person(Id) NOT NULL,
+	Fk_Stationed int FOREIGN  KEY REFERENCES  Hostpital(Id) NOT NULL,
+	Fk_Disease int FOREIGN KEY REFERENCES  Disease(Id) NOT NULL,
+	Fk_ResponsibleEmployee int FOREIGN KEY REFERENCES  Employee(Id) NOT NULL
 );
 GO
 DROP TABLE IF EXISTS Employee
 GO
 CREATE TABLE Employee(
 	Id INT IDENTITY(1,1) PRIMARY KEY,
-	JobTitle VARCHAR(255),
+	JobTitle VARCHAR(255) NOT NULL,
 	HealthSector VARCHAR(255),
-	EntryDate DATETIME,
-	Fk_Person int FOREIGN KEY REFERENCES  Person(Id),
-	Fk_WorkingHostpital int FOREIGN KEY REFERENCES  Hostpital(Id)
-
-
-
+	EntryDate DATETIME NOT NULL,
+	Fk_Person int FOREIGN KEY REFERENCES  Person(Id) NOT NULL,
+	Fk_WorkingHostpital int FOREIGN KEY REFERENCES  Hostpital(Id) NOT NULL
 );
 GO
 DROP TABLE IF EXISTS Medicine
@@ -71,23 +68,40 @@ Go
 -- Desig stands for Designation
 CREATE TABLE Medicine(
 	Id INT IDENTITY(1,1) PRIMARY KEY,
-	Desig VARCHAR(255),
-	Price DECIMAL (9,2),
+	Desig VARCHAR(255) NOT NULL,
+	Price DECIMAL (9,2) NOT NULL,
 	Producer VARCHAR(255),
 
 );
 
 GO
-
+DROP TABLE IF EXISTS Supplier
+Go
+CREATE TABLE Supplier(
+	Id INT IDENTITY(1,1) PRIMARY KEY,
+	CompanyName VARCHAR(100),
+	fk_Contact INT FOREIGN KEY REFERENCES Person(Id),
+);
+GO
+DROP TABLE IF EXISTS SupplierDelivers
+Go
+CREATE TABLE SupplierDelivers(
+	Id INT IDENTITY(1,1) PRIMARY KEY,
+	UnitsInStock INT,
+	UnitsOnOrder INT,
+	fk_Supplier INT FOREIGN KEY REFERENCES Supplier(Id) NOT NULL,
+	fk_Medication INT FOREIGN KEY REFERENCES Medicine(Id),
+	fk_Hospital INT FOREIGN KEY REFERENCES Medicine(Id) NOT NULL
+);
 
 CREATE TABLE DiseaseHistory(
 	Id INT IDENTITY(1,1) PRIMARY KEY,
-	isHealed  BIT,
-	EntryDate DATETIME,
+	isHealed  BIT NOT NULL,
+	EntryDate DATETIME NOT NULL,
 	Discharge DATETIME,
-	Fk_Hostpital INT FOREIGN KEY REFERENCES Hostpital (Id),
-	Fk_Patient INT FOREIGN KEY REFERENCES Patient(Id),
-	Fk_Employee INT FOREIGN KEY REFERENCES Employee(Id),
+	Fk_Hostpital INT FOREIGN KEY REFERENCES Hostpital (Id) NOT NULL,
+	Fk_Patient INT FOREIGN KEY REFERENCES Patient(Id) NOT NULL,
+	Fk_Employee INT FOREIGN KEY REFERENCES Employee(Id) NOT NULL,
 	Fk_Medicine INT FOREIGN KEY REFERENCES Medicine(Id),
 );
 
