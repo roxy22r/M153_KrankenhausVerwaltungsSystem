@@ -61,6 +61,8 @@ CREATE TABLE Employee(
 	EntryDate DATETIME NOT NULL,
 	Fk_Person int FOREIGN KEY REFERENCES  Person(Id) NOT NULL,
 	Fk_WorkingHostpital int FOREIGN KEY REFERENCES  Hostpital(Id) NOT NULL
+	CONSTRAINT employeeIsUniqueForEeachHospital UNIQUE (Fk_Person,Fk_WorkingHostpital)
+
 );
 GO
 DROP TABLE IF EXISTS Medicine
@@ -71,6 +73,7 @@ CREATE TABLE Medicine(
 	Desig VARCHAR(255) NOT NULL,
 	Price DECIMAL (9,2) NOT NULL,
 	Producer VARCHAR(255),
+	CONSTRAINT DesigIsUniqueForEeachProducer UNIQUE (Desig,Producer)
 
 );
 
@@ -81,6 +84,8 @@ CREATE TABLE Supplier(
 	Id INT IDENTITY(1,1) PRIMARY KEY,
 	CompanyName VARCHAR(100),
 	fk_Contact INT FOREIGN KEY REFERENCES Person(Id),
+	CONSTRAINT companyNameIsUnique UNIQUE (CompanyName)
+
 );
 GO
 DROP TABLE IF EXISTS SupplierDelivers
