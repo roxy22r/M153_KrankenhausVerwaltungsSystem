@@ -13,9 +13,13 @@ This git Repository Includes a DB create script for a HospitalManagementSystem. 
 There is a scirpt that create the tabel and another to add Data about Hostpital, Person, Patient, Employee, Disease, Medicine and the DiseaseHistory.
 
 
-In this Project you will find min 2 Procetures and 2 Functions that may make the use of the DB easier.
+In this Project you will find min 2 Procedures and 2 Functions that may make the use of the DB easier.
 
 ## Why did our Team choose a 'Hospital Management System'
 
 We choose the HospitalManagementSystem as a project because there is a lot of potential for a
 TSQL Project. In a HospitalManagementSystem, there can be a lot of connections to diffrent Data.
+
+## Tests
+
+As discussed we made for both the 2 Procedures and the 2 Functions but not for the additional Functions/Procedures
