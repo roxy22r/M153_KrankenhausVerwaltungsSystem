@@ -259,3 +259,6 @@ VALUES
 (11,671,9,6,5),
 (7,561,2,7,5),
 (33,71,2,8,5);
+
+INSERT INTO DiseaseHistory (Fk_Hostpital, Fk_Patient, Fk_Employee, Fk_Medicine, EntryDate, isHealed)
+	VALUES (1, 1, 1, 1, GETDATE(), 0);
