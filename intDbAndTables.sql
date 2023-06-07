@@ -1,4 +1,3 @@
-Use ComputerShop
 DROP DATABASE IF  EXISTS HospitalManagementSystem
 GO
 CREATE DATABASE HospitalManagementSystem
@@ -42,16 +41,7 @@ CREATE TABLE Disease(
 	isHealable  BIT NOT NULL
 );
 GO
-DROP TABLE IF EXISTS Patient
-GO
-CREATE TABLE Patient(
-	Id INT IDENTITY(1,1) PRIMARY KEY,
-	Fk_Person int FOREIGN  KEY REFERENCES  Person(Id) NOT NULL,
-	Fk_Stationed int FOREIGN  KEY REFERENCES  Hostpital(Id) NOT NULL,
-	Fk_Disease int FOREIGN KEY REFERENCES  Disease(Id) NOT NULL,
-	Fk_ResponsibleEmployee int FOREIGN KEY REFERENCES  Employee(Id) NOT NULL
-);
-GO
+
 DROP TABLE IF EXISTS Employee
 GO
 CREATE TABLE Employee(
@@ -65,6 +55,17 @@ CREATE TABLE Employee(
 
 );
 GO
+DROP TABLE IF EXISTS Patient
+GO
+CREATE TABLE Patient(
+	Id INT IDENTITY(1,1) PRIMARY KEY,
+	Fk_Person int FOREIGN  KEY REFERENCES  Person(Id) NOT NULL,
+	Fk_Stationed int FOREIGN  KEY REFERENCES  Hostpital(Id) NOT NULL,
+	Fk_Disease int FOREIGN KEY REFERENCES  Disease(Id) NOT NULL,
+	Fk_ResponsibleEmployee int FOREIGN KEY REFERENCES  Employee(Id) NOT NULL
+);
+GO
+
 DROP TABLE IF EXISTS Medicine
 Go
 -- Desig stands for Designation
