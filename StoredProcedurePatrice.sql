@@ -14,14 +14,17 @@ go
 	--GetMedicationUsage with valid, available id:
 		--Should return the amount of medication which are used
 			select anzahl = dbo.fn_GetMedicationUsage(1)
+			go
 
 	--GetMedicationUsage with valid unavailable id:
 		--Should return 0
 			select anzahl = dbo.fn_GetMedicationUsage(10000)
+			go
 
 	--GetMedicationUsage with wrong id
 		--Should return 0
 			select anzahl = dbo.fn_GetMedicationUsage(null);
+			go
 
 	
 DROP PROCEDURE IF EXISTS sp_NewDiseaseHistory
@@ -46,22 +49,27 @@ AS BEGIN
 		RAISERROR('Invalid Id', 16, 1)
 	END
 END
-
+go
 --tests:
-
-	--Create new Disease with Wrong Id:
-		--Wrong HospitalId, should return Error: Invalid ID
-			EXEC sp_NewDiseaseHistory 10000, 1, 1, 1
-
-		--Wrong PersonId, should return Error: Invalid ID
-			EXEC sp_NewDiseaseHistory 1, 10000, 1, 1
-
-		--Wrong EmployeeId, should return Error: Invalid ID
-			EXEC sp_NewDiseaseHistory 1, 1, 10000, 1
-
-		--Wrong MedicineId, should return Error: Invalid ID
-			EXEC sp_NewDiseaseHistory 1, 1, 1, 10000
 
 	-- Create new disease with valid Id:
 		--Should return no error and succeed
 			EXEC sp_NewDiseaseHistory 1, 1, 1, 1
+			go
+
+	--Create new Disease with Wrong Id:
+		--Wrong HospitalId, should return Error: Invalid ID
+			EXEC sp_NewDiseaseHistory 10000, 1, 1, 1
+			go
+
+		--Wrong PersonId, should return Error: Invalid ID
+			EXEC sp_NewDiseaseHistory 1, 10000, 1, 1
+			go
+
+		--Wrong EmployeeId, should return Error: Invalid ID
+			EXEC sp_NewDiseaseHistory 1, 1, 10000, 1
+			go 
+
+		--Wrong MedicineId, should return Error: Invalid ID
+			EXEC sp_NewDiseaseHistory 1, 1, 1, 10000
+			go
