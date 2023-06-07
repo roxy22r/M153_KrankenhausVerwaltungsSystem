@@ -50,6 +50,7 @@ AS BEGIN
 	END
 END
 go
+
 --tests:
 
 	-- Create new disease with valid Id:
