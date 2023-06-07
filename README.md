@@ -23,3 +23,7 @@ TSQL Project. In a HospitalManagementSystem, there can be a lot of connections t
 ## Tests
 
 As discussed we made for both the 2 Procedures and the 2 Functions but not for the additional Functions/Procedures
+
+## ERM/ERD
+
+Note that the files can be viewed on Draw.io
