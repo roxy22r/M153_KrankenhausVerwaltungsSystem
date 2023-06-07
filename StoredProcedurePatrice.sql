@@ -45,7 +45,7 @@ AS BEGIN
 		INSERT INTO DiseaseHistory (Fk_Hostpital, Fk_Patient, Fk_Employee, Fk_Medicine, EntryDate, isHealed)
 		VALUES (@HospitalId, @PatientId, @EmployeeId, @MedicineId, GETDATE(), 0);
 	END
-	Else BEGIN
+	ELSE BEGIN
 		RAISERROR('Invalid Id', 16, 1)
 	END
 END
